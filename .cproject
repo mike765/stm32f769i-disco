@@ -64,6 +64,8 @@
 									<listOptionValue builtIn="false" value="&quot;${ProjDirPath}/Utilities/STM32F769I-Discovery&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${ProjDirPath}/CMSIS/core&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${ProjDirPath}/Utilities/Components/mx25l512&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/STM32_F769DISCO/Middlewares/FreeRTOS/Source/portable/GCC/ARM_CM7/r0p1}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/STM32_F769DISCO/Middlewares/FreeRTOS/Source/include}&quot;"/>
 								</option>
 								<inputType id="fr.ac6.managedbuild.tool.gnu.cross.c.compiler.input.c.1587435534" superClass="fr.ac6.managedbuild.tool.gnu.cross.c.compiler.input.c"/>
 								<inputType id="fr.ac6.managedbuild.tool.gnu.cross.c.compiler.input.s.1628646730" superClass="fr.ac6.managedbuild.tool.gnu.cross.c.compiler.input.s"/>
@@ -118,6 +120,7 @@
 					</folderInfo>
 					<sourceEntries>
 						<entry excluding="Src/stm32f7xx_hal_timebase_tim_template.c|Src/stm32f7xx_hal_timebase_rtc_wakeup_template.c|Src/stm32f7xx_hal_timebase_rtc_alarm_template.c|Src/stm32f7xx_hal_msp_template.c" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="HAL_Driver"/>
+						<entry excluding="Source/portable/BCC/|Source/portable/CCS/|Source/portable/CodeWarrior/|Source/portable/Common/|Source/portable/GCC/ARM_CA53_64_BIT/|Source/portable/GCC/ARM_CA9/|Source/portable/GCC/ARM_CM0/|Source/portable/GCC/ARM_CM3/|Source/portable/GCC/ARM_CM3_MPU/|Source/portable/GCC/ARM_CM4_MPU/|Source/portable/GCC/ARM_CM4F/|Source/portable/GCC/ARM_CR5/|Source/portable/GCC/ARM_CRx_No_GIC/|Source/portable/GCC/ARM7_AT91FR40008/|Source/portable/GCC/ARM7_AT91SAM7S/|Source/portable/GCC/ARM7_LPC2000/|Source/portable/GCC/ARM7_LPC23xx/|Source/portable/GCC/ATMega323/|Source/portable/GCC/AVR32_UC3/|Source/portable/GCC/ColdFire_V2/|Source/portable/GCC/CORTUS_APS3/|Source/portable/GCC/H8S2329/|Source/portable/GCC/HCS12/|Source/portable/GCC/IA32_flat/|Source/portable/GCC/MCF5235/|Source/portable/GCC/MicroBlaze/|Source/portable/GCC/MicroBlazeV8/|Source/portable/GCC/MicroBlazeV9/|Source/portable/GCC/MSP430F449/|Source/portable/GCC/NiosII/|Source/portable/GCC/PPC405_Xilinx/|Source/portable/GCC/PPC440_Xilinx/|Source/portable/GCC/RL78/|Source/portable/GCC/RX100/|Source/portable/GCC/RX600/|Source/portable/GCC/RX600v2/|Source/portable/GCC/STR75x/|Source/portable/GCC/TriCore_1782/|Source/portable/IAR/|Source/portable/Keil/|Source/portable/MikroC/|Source/portable/MPLAB/|Source/portable/MSVC-MingW/|Source/portable/oWatcom/|Source/portable/Paradigm/|Source/portable/Renesas/|Source/portable/Rowley/|Source/portable/RVDS/|Source/portable/SDCC/|Source/portable/Softune/|Source/portable/Tasking/|Source/portable/WizC/|Source/portable/MemMang/heap_1.c|Source/portable/MemMang/heap_2.c|Source/portable/MemMang/heap_4.c|Source/portable/MemMang/heap_5.c" flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="Middlewares/FreeRTOS"/>
 						<entry excluding="Fonts" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="Utilities"/>
 						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="inc"/>
 						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src"/>
