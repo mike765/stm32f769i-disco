@@ -17,6 +17,8 @@
 
 void task1(void)
 {
+	logger_send("Task1 is started!");
+
 	while (1)
 	{
 		HAL_GPIO_WritePin(LD_USER2_GPIO_Port, LD_USER2_Pin, GPIO_PIN_SET);
@@ -34,6 +36,57 @@ void task2(void)
 	}
 }
 
+void HAL_UART_MspInit(UART_HandleTypeDef* uartHandle)
+{
+
+  GPIO_InitTypeDef GPIO_InitStruct;
+
+  if(uartHandle->Instance==USART1)
+  {
+    /* Peripheral clock enable */
+    __HAL_RCC_USART1_CLK_ENABLE();
+
+    /**USART1 GPIO Configuration
+    PA10     ------> USART1_RX
+    PA9     ------> USART1_TX
+    */
+    GPIO_InitStruct.Pin = VCP_RX_Pin;
+    GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
+    GPIO_InitStruct.Pull = GPIO_PULLUP;
+    GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_VERY_HIGH;
+    GPIO_InitStruct.Alternate = GPIO_AF7_USART1;
+    HAL_GPIO_Init(VCP_RX_GPIO_Port, &GPIO_InitStruct);
+
+    GPIO_InitStruct.Pin = VCP_TX_Pin;
+    GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
+    GPIO_InitStruct.Pull = GPIO_NOPULL;
+    GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+    GPIO_InitStruct.Alternate = GPIO_AF7_USART1;
+    HAL_GPIO_Init(VCP_TX_GPIO_Port, &GPIO_InitStruct);
+  }
+
+  if(uartHandle->Instance==USART6)
+    {
+      /* Peripheral clock enable */
+      __HAL_RCC_USART6_CLK_ENABLE();
+
+      /* USART6 GPIO Configuration */
+	 GPIO_InitStruct.Pin = ARD_D0_RX_Pin;
+	 GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
+	 GPIO_InitStruct.Pull = GPIO_PULLUP;
+	 GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_VERY_HIGH;
+	 GPIO_InitStruct.Alternate = GPIO_AF8_USART6;
+	 HAL_GPIO_Init(ARD_D0_RX_GPIO_Port, &GPIO_InitStruct);
+
+	 GPIO_InitStruct.Pin = ARDUINO_TX_D1_Pin;
+	 GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
+	 GPIO_InitStruct.Pull = GPIO_NOPULL;
+	 GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+	 GPIO_InitStruct.Alternate = GPIO_AF8_USART6;
+	 HAL_GPIO_Init(ARDUINO_TX_D1_GPIO_Port, &GPIO_InitStruct);
+    }
+}
+
 static void SystemClock_Config(void);
 
 int main(void)
@@ -45,6 +98,8 @@ int main(void)
 
 	MX_GPIO_Init();
 
+	/* The logger use VCP UART */
+	logger_init();
 
 	xTaskCreate( task1,				/* The function that implements the task. */
 							"task1", 		/* The text name assigned to the task - for debug only as it is not used by the kernel. */
@@ -76,6 +131,12 @@ void vApplicationMallocFailedHook(void)
 void vApplicationStackOverflowHook(void)
 {
 	while(1);
+}
+
+void Error_Handler(void)
+{
+  /* User can add his own implementation to report the HAL error return state */
+  while(1);
 }
 
 void vAssertCalled( unsigned long ulLine, const char * const pcFileName )
